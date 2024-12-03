@@ -47,4 +47,9 @@ public class StudentServiceImpl implements StudentService {
         Student response= studentRepository.findByName(name);
         return response;
     }
+
+    @Override
+    public void deleteStudent(Integer id){
+        studentRepository.deleteById(id);
+    }
 }

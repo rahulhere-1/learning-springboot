@@ -44,8 +44,14 @@ public class HomeController {
         studentService.updateStudent(student.getStudentId(),student);
     }
 
-    @GetMapping("/student/name/{name}")
+    @PutMapping("/student/{name}")
     public Student getStudentByName(@PathVariable("name") String name){
         return studentService.getStudentByName(name);
     }
+
+    @DeleteMapping("/student/{id}")
+    public void deleteStudentById(@PathVariable("id") Integer studentId){
+        studentService.deleteStudent(studentId);
+    }
+
 }

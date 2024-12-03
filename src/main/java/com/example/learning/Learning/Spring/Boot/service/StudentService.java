@@ -14,4 +14,6 @@ public interface StudentService {
     void updateStudent(Integer id, Student student);
 
     Student getStudentByName(String name);
+
+    void deleteStudent(Integer id);
 }
