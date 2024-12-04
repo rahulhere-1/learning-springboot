@@ -1,6 +1,7 @@
 package com.example.learning.Learning.Spring.Boot.controller;
 
 import com.example.learning.Learning.Spring.Boot.entity.Student;
+import com.example.learning.Learning.Spring.Boot.error.StudentNotFoundException;
 import com.example.learning.Learning.Spring.Boot.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ public class HomeController {
     }
 
     @GetMapping("/student/{id}")
-    public Student getStudentById(@PathVariable("id") Integer id){
+    public Student getStudentById(@PathVariable("id") Integer id) throws StudentNotFoundException {
         return studentService.getStudentById(id);
     }
 

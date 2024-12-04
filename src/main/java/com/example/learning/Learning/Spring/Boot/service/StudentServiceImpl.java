@@ -1,6 +1,7 @@
 package com.example.learning.Learning.Spring.Boot.service;
 
 import com.example.learning.Learning.Spring.Boot.entity.Student;
+import com.example.learning.Learning.Spring.Boot.error.StudentNotFoundException;
 import com.example.learning.Learning.Spring.Boot.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,12 +26,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student getStudentById(Integer studentId){
+    public Student getStudentById(Integer studentId) throws StudentNotFoundException {
         Optional<Student> student = studentRepository.findById(studentId);
         if(student.isPresent())
             return student.get();
 
-        return null;
+        else  throw new StudentNotFoundException("Student Not Available");
     }
 
     @Override
