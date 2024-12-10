@@ -4,9 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Student {
     @Id
@@ -15,6 +19,7 @@ public class Student {
     private String name;
     private Integer grade;
     private Integer age;
+
     public Integer getStudentId() {
         return studentId;
     }
