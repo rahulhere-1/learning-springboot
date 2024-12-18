@@ -18,17 +18,23 @@ class StudentRepositoryTest {
     @Autowired
     private StudentRepository studentRepository;
 
-    @Autowired
-    private TestEntityManager testEntityManager;
-    @BeforeEach
-    void setUp() {
-        Student student = Student.builder().name("rohan").age(12).grade(8).build();
-        testEntityManager.persist(student);
-    }
+//    @Autowired
+//    private TestEntityManager testEntityManager;
+//    @BeforeEach
+//    void setUp() {
+//        Student student = Student.builder().name("rohan").age(12).grade(8).build();
+//        testEntityManager.persist(student);
+//    }
 
     @Test
     public void testWhenStudentNameIsGiven(){
         Student student = studentRepository.findByName("rohan");
         assertEquals(student.getName(),"rohan");
+    }
+
+    @Test
+    public void saveStudent(){
+        Student student = Student.builder().name("sakshi").age(14).grade(8).build();
+        studentRepository.save(student);
     }
 }
