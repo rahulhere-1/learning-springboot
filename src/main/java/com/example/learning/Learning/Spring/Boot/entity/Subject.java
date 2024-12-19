@@ -17,9 +17,9 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer subjectId;
 
-    private Integer subjectName;
+    private String subjectName;
 
-    @ManyToOne
+    @ManyToOne( cascade = CascadeType.ALL)
     @JoinColumn( name = "teacher_id",referencedColumnName = "teacherId")
     private Teacher teacher;
 
