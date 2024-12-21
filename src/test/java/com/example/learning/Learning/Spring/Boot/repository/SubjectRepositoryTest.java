@@ -20,4 +20,11 @@ class SubjectRepositoryTest {
         Subject subject = Subject.builder().subjectName("Maths").teacher(teacher).build();
         subjectRepository.save(subject);
     }
+
+    @Test
+    public void whenValidSubjectNameIsGiven(){
+            String subjectName = "Maths";
+            Subject response = subjectRepository.findBySubjectName(subjectName);
+            assertEquals(subjectName,response.getSubjectName());
+    }
 }
